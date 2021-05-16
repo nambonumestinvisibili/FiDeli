@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace FiDeli.Domain
 {
-    public enum DeliveryStatus
+    public abstract class Entity
     {
-
+        public Guid Id { get; set; }
     }
 }

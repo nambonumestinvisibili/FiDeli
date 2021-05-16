@@ -1,6 +1,8 @@
 ﻿namespace FiDeli.Domain
 {
-    public class LockerState
+    public enum LockerState
     {
+        OPEN,
+        CLOSED
     }
 }

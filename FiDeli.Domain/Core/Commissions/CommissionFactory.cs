@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FiDeli.Domain
+namespace FiDeli.Domain.Core.Commissions
 {
-    public enum DeliveryStatus
+    class CommissionFactory
     {
-
     }
 }

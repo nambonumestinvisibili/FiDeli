@@ -4,10 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FiDeli.Domain
+namespace FiDeli.Domain.Statuses
 {
-    public enum DeliveryStatus
+    public enum CommissionStatus
     {
-
+        Draft,
+        Executing,
+        Finished
     }
 }

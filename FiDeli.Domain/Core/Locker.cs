@@ -8,12 +8,12 @@
 
         public void Open()
         {
-
+            LockerState = LockerState.OPEN;
         }
 
         public void Close()
         {
-
+            LockerState = LockerState.CLOSED;
         }
 
     }
