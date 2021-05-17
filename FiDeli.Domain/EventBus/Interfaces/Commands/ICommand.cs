@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FiDeli.Domain.EventBus.Interfaces
+namespace FiDeli.Domain.EventBus.Interfaces.Commands
 {
     public interface ICommand : IRequest
     {
