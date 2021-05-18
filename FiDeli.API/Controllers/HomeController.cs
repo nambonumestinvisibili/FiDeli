@@ -1,4 +1,6 @@
-﻿using FiDeli.Infrastructure.Repos;
+﻿using FiDeli.Infrastructure;
+using FiDeli.Infrastructure.Repos;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -13,9 +15,11 @@ namespace FiDeli.API.Controllers
     public class HomeController : Controller
     {
         private readonly IDelivererRepo _delivererRepo;
-        public HomeController(IDelivererRepo delivererRepo)
+        private readonly IMediator _mediator;
+        public HomeController(IDelivererRepo delivererRepo, IMediator mediator)
         {
             _delivererRepo = delivererRepo;
+            _mediator = mediator;
         }
 
         [HttpGet]
@@ -27,6 +31,9 @@ namespace FiDeli.API.Controllers
             {
                 sb.Append(x);
             }
+
+            _mediator.Send(new SomeEvent("działa!"));
+
             return sb.ToString();
         }
     }
