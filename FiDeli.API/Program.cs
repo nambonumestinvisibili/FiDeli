@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +14,7 @@ namespace FiDeli.API
     {
         public static void Main(string[] args)
         {
+            var client = new MongoClient("mongodb://localhost:27017");
             CreateHostBuilder(args).Build().Run();
         }
 

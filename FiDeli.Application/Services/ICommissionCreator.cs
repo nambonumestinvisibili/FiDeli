@@ -1,4 +1,5 @@
 ﻿using FiDeli.Domain;
+using FiDeli.Domain.Core.Commissions;
 using System;
 
 namespace FiDeli.Application

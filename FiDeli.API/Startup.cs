@@ -1,3 +1,4 @@
+using FiDeli.Infrastructure;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -28,6 +29,7 @@ namespace FiDeli.API
         {
 
             services.AddControllers();
+            services.RegisterDataService(Configuration);
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "FiDeli.API", Version = "v1" });
