@@ -6,11 +6,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FiDeli.Application
+namespace FiDeli.Application.Services.Interfaces
+
 {
-    public interface IDelivererFinder
+    public interface IParcelLockerFinder
     {
-        Deliverer FindCloserDeliverer(GeoLocation location);
-        
+        ParcelLocker FindCloserParcelLocker(GeoLocation location);
     }
 }

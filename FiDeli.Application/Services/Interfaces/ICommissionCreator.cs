@@ -2,7 +2,7 @@
 using FiDeli.Domain.Core.Commissions;
 using System;
 
-namespace FiDeli.Application
+namespace FiDeli.Application.Services.Interfaces
 {
     public interface ICommissionCreator
     {

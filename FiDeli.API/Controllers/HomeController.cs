@@ -1,4 +1,6 @@
-﻿using FiDeli.Infrastructure;
+﻿using FiDeli.Application.Services.Interfaces.RepositoryInterfaces;
+using FiDeli.Domain;
+using FiDeli.Infrastructure;
 using FiDeli.Infrastructure.Repos;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;

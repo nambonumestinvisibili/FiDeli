@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-namespace FiDeli.Infrastructure
+namespace FiDeli.Domain
 {
     public class SomeEvent : ICommand
     {

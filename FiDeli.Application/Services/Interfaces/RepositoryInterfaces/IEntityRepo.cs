@@ -6,7 +6,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FiDeli.Infrastructure.Repos
+namespace FiDeli.Application.Services.Interfaces.RepositoryInterfaces
+
 {
     public interface IEntityRepo<T> where T : Entity
     {

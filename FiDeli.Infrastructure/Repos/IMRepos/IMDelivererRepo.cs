@@ -1,4 +1,5 @@
-﻿using FiDeli.Domain;
+﻿using FiDeli.Application.Services.Interfaces.RepositoryInterfaces;
+using FiDeli.Domain;
 using Nest;
 using System;
 using System.Collections.Generic;

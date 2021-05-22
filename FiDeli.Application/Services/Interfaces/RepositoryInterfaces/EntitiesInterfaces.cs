@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FiDeli.Infrastructure.Repos
+namespace FiDeli.Application.Services.Interfaces.RepositoryInterfaces
 {
     public interface ICommissionRepo : IEntityRepo<Commission>
     {
@@ -15,13 +15,13 @@ namespace FiDeli.Infrastructure.Repos
     public interface IDelivererRepo : ILocalisableRepo<Deliverer>
     {
     }
-    public interface IParcelLocker : ILocalisableRepo<ParcelLocker>
+    public interface IParcelLockerRepo : ILocalisableRepo<ParcelLocker>
     {
     }
-    public interface ICommissioner : ILocalisableRepo<Commissioner>
+    public interface ICommissionerRepo : ILocalisableRepo<Commissioner>
     {
     }
-    public interface IRecipient : ILocalisableRepo<Recipient> 
+    public interface IRecipientRepo : ILocalisableRepo<Recipient> 
     { 
     }
 

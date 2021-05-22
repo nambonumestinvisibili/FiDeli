@@ -12,6 +12,7 @@ using Microsoft.OpenApi.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 
 namespace FiDeli.API
@@ -32,8 +33,12 @@ namespace FiDeli.API
             services.AddControllers();
             services.RegisterDataService(Configuration);
 
+
+            //todo: make it cleaner -=> what if classess change?
             services.AddMediatR(typeof(Startup).Assembly);
-            services.RegisterHandlers();
+            services.AddMediatR(Assembly.GetAssembly(typeof(FiDeli.Infrastructure.ServiceCollectionExtensions)));
+            services.AddMediatR(Assembly.GetAssembly(typeof(FiDeli.Domain.Person)));
+            services.AddMediatR(Assembly.GetAssembly(typeof(FiDeli.Application.Services.Interfaces.ICommissionCreator)));
 
 
 

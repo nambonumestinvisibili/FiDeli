@@ -1,5 +1,6 @@
 ﻿using FiDeli.Application.Services.Interfaces.RepositoryInterfaces;
 using FiDeli.Domain;
+using Nest;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,14 +9,12 @@ using System.Threading.Tasks;
 
 namespace FiDeli.Infrastructure.Repos.IMRepos
 {
-    public class IMCommissionerRepo : 
-        IMLocalisableRepository<Commissioner>, 
-        ICommissionerRepo 
+    public class IMParcelLockerRepo
+        : IMLocalisableRepository<ParcelLocker>,
+        IParcelLockerRepo
     {
+        
 
-        public IMCommissionerRepo()
-        {
-            //_entities.Add()
-        }
+
     }
 }

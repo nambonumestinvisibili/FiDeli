@@ -1,4 +1,5 @@
-﻿using FiDeli.Domain;
+﻿using FiDeli.Application.Services.Interfaces.RepositoryInterfaces;
+using FiDeli.Domain;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,7 @@ namespace FiDeli.Infrastructure.Repos.IMRepos
 {
     public class IMRecipientRepo :
         IMLocalisableRepository<Recipient>,
-        ILocalisableRepo<Recipient>
+        IRecipientRepo
     {
 
         public IMRecipientRepo()

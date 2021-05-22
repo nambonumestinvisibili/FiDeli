@@ -1,4 +1,5 @@
-﻿using FiDeli.Infrastructure.Repos;
+﻿using FiDeli.Application.Services.Interfaces.RepositoryInterfaces;
+using FiDeli.Infrastructure.Repos;
 using FiDeli.Infrastructure.Repos.Database;
 using FiDeli.Infrastructure.Repos.IMRepos;
 using Microsoft.EntityFrameworkCore;
@@ -23,6 +24,13 @@ namespace FiDeli.Infrastructure
             //});
 
             services.AddScoped<IDelivererRepo, IMDelivererRepo>();
+            services.AddScoped<ICommissionRepo, IMCommissionRepo>();
+            services.AddScoped<ICommissionerRepo, IMCommissionerRepo>();
+            services.AddScoped<IParcelLockerRepo, IMParcelLockerRepo>();
+            services.AddScoped<IRecipientRepo, IMRecipientRepo>();
+
+
+
             return services;
         }
     }

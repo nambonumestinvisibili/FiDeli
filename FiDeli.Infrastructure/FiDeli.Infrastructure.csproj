@@ -23,6 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\FiDeli.Application\FiDeli.Application.csproj" />
     <ProjectReference Include="..\FiDeli.Domain\FiDeli.Domain.csproj" />
   </ItemGroup>
 

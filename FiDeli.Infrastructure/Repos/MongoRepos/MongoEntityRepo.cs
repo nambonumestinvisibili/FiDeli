@@ -1,4 +1,5 @@
-﻿using FiDeli.Domain;
+﻿using FiDeli.Application.Services.Interfaces.RepositoryInterfaces;
+using FiDeli.Domain;
 using FiDeli.Domain.SeedWork;
 using MongoDB.Driver;
 using Nest;

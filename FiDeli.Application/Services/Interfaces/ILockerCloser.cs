@@ -5,7 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using FiDeli.Domain;
 
-namespace FiDeli.Application
+namespace FiDeli.Application.Services.Interfaces
+
 {
     public interface ILockerCloser
     {
