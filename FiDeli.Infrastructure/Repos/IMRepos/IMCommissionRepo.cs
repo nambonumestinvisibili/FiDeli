@@ -12,8 +12,10 @@ namespace FiDeli.Infrastructure.Repos.IMRepos
     {
         public IMCommissionRepo()
         {
-            //TODO:
-            //_entities.Add();
+            _entities.Add(new Commission());
+            _entities.Add(new Commission());
+            _entities.Add(new Commission());
+
         }
 
 

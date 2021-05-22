@@ -12,7 +12,7 @@ namespace FiDeli.Domain.EventBus.Interfaces.Commands
     {
     }
 
-    public interface ICommnadHandler<in TCommand, TResult> :
+    public interface ICommandHandler<in TCommand, TResult> :
         IRequestHandler<TCommand, TResult> where TCommand : ICommand<TResult>
     {
     } 

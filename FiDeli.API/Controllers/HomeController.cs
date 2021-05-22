@@ -1,5 +1,7 @@
-﻿using FiDeli.Application.Services.Interfaces.RepositoryInterfaces;
+﻿using FiDeli.Application.Services.Implementations.CommissionCreatorService;
+using FiDeli.Application.Services.Interfaces.RepositoryInterfaces;
 using FiDeli.Domain;
+using FiDeli.Domain.Core.Commissions;
 using FiDeli.Infrastructure;
 using FiDeli.Infrastructure.Repos;
 using MediatR;
@@ -17,26 +19,32 @@ namespace FiDeli.API.Controllers
     public class HomeController : Controller
     {
         private readonly IDelivererRepo _delivererRepo;
+        private readonly ICommissionRepo _commissionRepo;
         private readonly IMediator _mediator;
-        public HomeController(IDelivererRepo delivererRepo, IMediator mediator)
+        public HomeController(IDelivererRepo delivererRepo, IMediator mediator, ICommissionRepo commissionRepo)
         {
             _delivererRepo = delivererRepo;
             _mediator = mediator;
+            _commissionRepo = commissionRepo;
         }
 
         [HttpGet]
-        public string Index()
+        public async Task<string> Index()
         {
-            StringBuilder sb = new StringBuilder();
-            var r = _delivererRepo.FindAll().Result; 
-            foreach (var x in r)
-            {
-                sb.Append(x);
-            }
+            //StringBuilder sb = new StringBuilder();
+            //var r = _delivererRepo.FindAll().Result; 
+            //foreach (var x in r)
+            //{
+            //    sb.Append(x);
+            //}
 
-            _mediator.Send(new SomeEvent("działa!"));
+            //_mediator.Send(new SomeEvent("działa!"));
 
-            return sb.ToString();
+            //return sb.ToString();
+            Commission commission = new Commission() { Price = 10};
+            var ret = await _mediator.Send(new CreateCommissionCommand(commission));
+            return ret.Price.ToString();
+
         }
     }
 }

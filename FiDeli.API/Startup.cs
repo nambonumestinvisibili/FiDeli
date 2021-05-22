@@ -14,6 +14,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
+using AutoMapper;
 
 namespace FiDeli.API
 {
@@ -33,14 +34,17 @@ namespace FiDeli.API
             services.AddControllers();
             services.RegisterDataService(Configuration);
 
+            var InfraAssembly = Assembly.GetAssembly(typeof(FiDeli.Infrastructure.ServiceCollectionExtensions));
+            var DomainAssembly = Assembly.GetAssembly(typeof(FiDeli.Domain.Person));
+            var ApplicationAssembly = Assembly.GetAssembly(typeof(FiDeli.Application.Services.Interfaces.ICommissionCreator));
 
             //todo: make it cleaner -=> what if classess change?
             services.AddMediatR(typeof(Startup).Assembly);
-            services.AddMediatR(Assembly.GetAssembly(typeof(FiDeli.Infrastructure.ServiceCollectionExtensions)));
-            services.AddMediatR(Assembly.GetAssembly(typeof(FiDeli.Domain.Person)));
-            services.AddMediatR(Assembly.GetAssembly(typeof(FiDeli.Application.Services.Interfaces.ICommissionCreator)));
+            services.AddMediatR(InfraAssembly);
+            services.AddMediatR(DomainAssembly);
+            services.AddMediatR(ApplicationAssembly);
 
-
+            services.AddAutoMapper(typeof(Startup).Assembly, ApplicationAssembly);
 
             services.AddSwaggerGen(c =>
             {

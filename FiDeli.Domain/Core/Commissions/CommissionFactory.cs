@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FiDeli.Domain.Core.Commissions
 {
-    class CommissionFactory
+    public class CommissionFactory
     {
     }
 }

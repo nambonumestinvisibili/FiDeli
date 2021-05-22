@@ -15,7 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\FiDeli.Infrastructure\FiDeli.Infrastructure.csproj" />
+    <ProjectReference Include="..\FiDeli.Application\FiDeli.Application.csproj" />
   </ItemGroup>
 
 </Project>
