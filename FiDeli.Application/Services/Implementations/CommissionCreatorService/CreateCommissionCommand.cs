@@ -1,4 +1,5 @@
-﻿using FiDeli.Application.DTO;
+﻿using Fideli.Domain.EventBus.Interfaces.Results;
+using FiDeli.Application.DTO;
 using FiDeli.Domain.Core.Commissions;
 using FiDeli.Domain.EventBus.Interfaces.Commands;
 using System;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace FiDeli.Application.Services.Implementations.CommissionCreatorService
 {
-    public class CreateCommissionCommand : ICommand<CommissionDTO>
+    public class CreateCommissionCommand : ICommand<Result<CommissionDTO>> 
     {
         public Guid Id  { get; }
         public Commission Commission { get; set; }

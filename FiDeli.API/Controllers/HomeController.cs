@@ -31,20 +31,13 @@ namespace FiDeli.API.Controllers
         [HttpGet]
         public async Task<string> Index()
         {
-            //StringBuilder sb = new StringBuilder();
-            //var r = _delivererRepo.FindAll().Result; 
-            //foreach (var x in r)
-            //{
-            //    sb.Append(x);
-            //}
 
-            //_mediator.Send(new SomeEvent("działa!"));
+                Commission commission = new Commission() { Price = 10 };
+                var ret = await _mediator.Send(new CreateCommissionCommand(commission));
+                return ret.Output.Price.ToString();
 
-            //return sb.ToString();
-            Commission commission = new Commission() { Price = 10};
-            var ret = await _mediator.Send(new CreateCommissionCommand(commission));
-            return ret.Price.ToString();
-
+           
+            
         }
     }
 }
