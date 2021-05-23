@@ -1,4 +1,5 @@
 ﻿using FiDeli.Application.Services.Interfaces.RepositoryInterfaces;
+using FiDeli.Domain.Core;
 using FiDeli.Domain.Core.Commissions;
 using System;
 using System.Collections.Generic;
@@ -12,12 +13,14 @@ namespace FiDeli.Infrastructure.Repos.IMRepos
     {
         public IMCommissionRepo()
         {
-            _entities.Add(new Commission());
-            _entities.Add(new Commission());
-            _entities.Add(new Commission());
-
+            
         }
 
-
+        public Commission FindCommissionByParcelCode(ParcelCode parcelCode)
+        {
+            return _entities.Where(x => x.Parcel.CommissionerCode == parcelCode ||
+            x.Parcel.DeliverersCodes.Contains(parcelCode) || x.Parcel.RecipientCode == parcelCode)
+                .FirstOrDefault();
+        }
     }
 }

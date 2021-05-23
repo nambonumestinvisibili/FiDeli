@@ -10,6 +10,11 @@ namespace FiDeli.Domain.Core
     {
         public string Code { get; }
 
+        public ParcelCode()
+        {
+            Code = Guid.NewGuid().ToString().Substring(0, 7);
+        }
+
         public override bool Equals(object obj)
         {
             if (obj.GetType() != typeof(ParcelCode)) return false;

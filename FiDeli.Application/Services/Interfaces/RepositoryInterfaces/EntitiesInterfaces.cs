@@ -1,4 +1,5 @@
 ﻿using FiDeli.Domain;
+using FiDeli.Domain.Core;
 using FiDeli.Domain.Core.Commissions;
 using Nest;
 using System;
@@ -11,6 +12,7 @@ namespace FiDeli.Application.Services.Interfaces.RepositoryInterfaces
 {
     public interface ICommissionRepo : IEntityRepo<Commission>
     {
+        Commission FindCommissionByParcelCode(ParcelCode parcelCode);
     }
     public interface IDelivererRepo : ILocalisableRepo<Deliverer>
     {
@@ -25,6 +27,10 @@ namespace FiDeli.Application.Services.Interfaces.RepositoryInterfaces
     { 
     }
 
+    public interface IParcelRepo : IEntityRepo<Parcel>
+    {
+
+    }
 
 
 }

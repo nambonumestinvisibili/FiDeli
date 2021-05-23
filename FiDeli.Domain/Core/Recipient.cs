@@ -8,7 +8,12 @@ namespace FiDeli.Domain
 {
     public class Recipient : Person
     {
-        public string ReceiverCode { get; set; }
+        public Recipient(string firstName, string surname, string phoneNumber, string emailAddress) : base(firstName, surname, phoneNumber, emailAddress)
+        {
+            ReceiverCodes = new List<string>();
+        }
+
+        public List<string> ReceiverCodes { get; set; }
         public void CollectParcel(Parcel parcel, string code)
         {
 

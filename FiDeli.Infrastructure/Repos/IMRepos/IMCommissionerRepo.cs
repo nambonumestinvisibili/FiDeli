@@ -15,7 +15,10 @@ namespace FiDeli.Infrastructure.Repos.IMRepos
 
         public IMCommissionerRepo()
         {
-            //_entities.Add()
+            _entities.Add(new Commissioner("ab", "cd", "111111111", "aaa@gma.com"));
+            _entities.Add(new Commissioner("bdd", "cddddd", "112111111", "aassssa@gma.com"));
+            _entities.Add(new Commissioner("abvvv", "cdvvv", "111111131", "aaaaa@gma.com"));
+
         }
     }
 }

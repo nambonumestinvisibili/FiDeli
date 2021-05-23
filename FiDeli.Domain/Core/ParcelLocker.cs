@@ -1,4 +1,5 @@
-﻿using FiDeli.Domain.SeedWork;
+﻿using FiDeli.Domain.Core;
+using FiDeli.Domain.SeedWork;
 using Nest;
 using System;
 using System.Collections.Generic;
@@ -23,5 +24,11 @@ namespace FiDeli.Domain
         {
             return Lockers.Where(x => x.Size == size).FirstOrDefault();
         }
+
+        public Locker GetLockerByParcelCode(ParcelCode code)
+        {
+            return Lockers.Where(x => x.ContainsParcelWithCode(code)).FirstOrDefault();
+        }
+    
     }
 }

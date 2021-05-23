@@ -15,7 +15,11 @@ namespace FiDeli.Infrastructure.Repos.IMRepos
 
         public IMRecipientRepo()
         {
-            //_entities.Add()
+            _entities.Add(new Recipient("dawid", "holewa", "725272885", "dawid@gmail.com"));
+            _entities.Add(new Recipient("a", "bvvvvv", "125272885", "dawid2@gmail.com"));
+            _entities.Add(new Recipient("ccc", "dddd", "225272885", "dawid3@gmail.com"));
+            _entities.Add(new Recipient("mmm", "aaaa", "325272885", "dawi4d@gmail.com"));
+
         }
     }
 }

@@ -8,6 +8,9 @@ namespace FiDeli.Domain
 {
     public enum DeliveryStatus
     {
-
+        NotStarted,
+        SubmittedByCommissioner,
+        Traveling,
+        InTargetParcelLocker
     }
 }

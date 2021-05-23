@@ -15,7 +15,7 @@ namespace FiDeli.Domain.Core.Commissions
         public ParcelLocker TargetParceLocker { get; set; }
         public ParcelLocker SourceParcelLocker { get; set; }
         public CommissionStatus CommissionStatus { get; set; }
-        public IDeliveryStatus DeliveryStatus { get; set; } //prolly state design pattern
+        public DeliveryStatus DeliveryStatus { get; set; } //prolly state design pattern
         public decimal Price { get; set; }
         public Parcel Parcel { get; set; }
 

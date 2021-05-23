@@ -10,24 +10,26 @@ namespace FiDeli.Domain
 {
     public class Commissioner : Person, IAggregateRoot
     {
-        public List<CommissionBuilder> DraftCommisions { get; set; }
+        public Commissioner(string firstName, string surname, string phoneNumber, string emailAddress) :
+            base(firstName, surname, phoneNumber, emailAddress)
+        {
+        }
+
+        public List<Commission> DraftCommisions { get; set; }
         public List<Commission> Commissions { get; set; }
 
-        public CommissionBuilder CreateDraftCommission(Recipient recipient, ParcelLocker targetParcelLocker, decimal price)
+        public Commission CreateDraftCommission(Recipient recipient, ParcelLocker targetParcelLocker, decimal price)
         {
-            CommissionBuilder commissionBuilder = new CommissionBuilder()
-                .SetCommissioner(this)
-                .SetRecipient(recipient)
-                .SetTargetParcelLocker(targetParcelLocker)
-                .SetPrice(price);
-            DraftCommisions.Add(commissionBuilder);
-            return commissionBuilder;
+            Commission commission = new Commission { Recipient = recipient, TargetParceLocker = targetParcelLocker, Price = price };
+
+            DraftCommisions.Add(commission);
+            return commission;
         }       
 
-        public Commission FinishDraftCommission(CommissionBuilder commissionBuilder, ParcelLocker targetParcelLocker)
+        public Commission FinishDraftCommission(Commission commission, ParcelLocker sourceParcelLocker)
         {
-            DraftCommisions.Remove(commissionBuilder);
-            var commission = commissionBuilder.SetTargetParcelLocker(targetParcelLocker).Build();
+            DraftCommisions.Remove(commission);
+            commission.SourceParcelLocker = sourceParcelLocker;
             Commissions.Add(commission);
             return commission;
         }

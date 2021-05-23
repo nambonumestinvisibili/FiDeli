@@ -14,24 +14,17 @@ namespace FiDeli.Infrastructure.Repos.IMRepos
 
         public IMDelivererRepo()
         {
-            _entities.Add(new Deliverer
+            _entities.Add(new Deliverer ("da", "dadad", "11111112", "qwqqw@wp.pl")
             {
                 Id = new Random().Next(),
                 EmailAddress = "a@b.com",
-                FirstName = "da",
-                Surname = "Ho",
-                PhoneNumber = "111111111",
                 CurrentLocation = GeoLocation.TryCreate(4, 34)
 
             });
 
-            _entities.Add(new Deliverer
+            _entities.Add(new Deliverer("daaaaaaaaaa", "daaaaaaaadad", "111111124", "aaaawqqw@wp.pl")
             {
                 Id = new Random().Next(),
-                EmailAddress = "b@b.com",
-                FirstName = "ca",
-                Surname = "de",
-                PhoneNumber = "121111111",
                 CurrentLocation = GeoLocation.TryCreate(10, 20)
             });
         }

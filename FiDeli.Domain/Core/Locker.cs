@@ -7,6 +7,7 @@ namespace FiDeli.Domain
         public Size Size { get; set; }
         public LockerState LockerState {get;set;}
         public Parcel CurrentParcel { get; set; }
+        public ParcelLocker ParcelLocker { get; set; }
 
         public void Open()
         {
@@ -29,5 +30,40 @@ namespace FiDeli.Domain
                 return CurrentParcel.CanBeOpenedBy<T>(code);
             }
         }
+
+        public bool ContainsParcelWithCode(ParcelCode code)
+        {
+            return CurrentParcel.IsAccessibleByCode(code);
+        }
+
+        public void EmptyLocker()
+        {
+            CurrentParcel = null;
+        }
+
+        public void LoadLocker(Parcel parcel)
+        {
+            if (parcel.Size == Size)
+            {
+                CurrentParcel = parcel;
+
+            }
+            else
+            {
+                throw new System.Exception("Parcel cannot fit into the locker");
+            }
+        }
+
+        public bool EnsureContains()
+        {
+            return CurrentParcel != null;
+        }
+
+        public bool EnsureEmpty()
+        {
+            return CurrentParcel == null;
+        }
+
+
     }
 }
