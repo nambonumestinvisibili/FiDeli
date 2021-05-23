@@ -32,11 +32,11 @@ namespace FiDeli.API.Controllers
         public async Task<string> Index()
         {
 
-                Commission commission = new Commission() { Price = 10 };
-                var ret = await _mediator.Send(new CreateCommissionCommand(commission));
-                return ret.Output.Price.ToString();
+            //Commission commission = new Commission() { Price = 10 };
+            //var ret = await _mediator.Send(new CreateCommissionCommand(commission));
+            //return ret.Output.Price.ToString();
 
-           
+            return "";
             
         }
     }

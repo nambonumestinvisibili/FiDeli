@@ -1,4 +1,6 @@
-﻿namespace FiDeli.Domain
+﻿using FiDeli.Domain.Core;
+
+namespace FiDeli.Domain
 {
     public class Locker : Entity
     {
@@ -16,5 +18,16 @@
             LockerState = LockerState.CLOSED;
         }
 
+        public bool CanBeOpenedBy<T>(ParcelCode code) where T : Person
+        {
+            if (CurrentParcel == null)
+            {
+                return true;
+            }
+            else
+            {
+                return CurrentParcel.CanBeOpenedBy<T>(code);
+            }
+        }
     }
 }

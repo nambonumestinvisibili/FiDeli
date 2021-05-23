@@ -13,7 +13,12 @@ namespace FiDeli.Application.Services.Implementations.CommissionCreatorService
     {
         public CreateCommissionCommandValidator()
         {
-            //RuleFor(cmd => cmd.Commission.Recipient).NotNull();
+            RuleFor(cmd => cmd.Commission.Recipient).NotNull();
+            RuleFor(cmd => cmd.Commission.Commissioner).NotNull();
+            RuleFor(cmd => cmd.Commission.Parcel).NotNull();
+            RuleFor(cmd => cmd.Commission.Price).NotNull();
+            RuleFor(cmd => cmd.Commission.TargetParceLocker).NotNull();
+
         }
     }
 }

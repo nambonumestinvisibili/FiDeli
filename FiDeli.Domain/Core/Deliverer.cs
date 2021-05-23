@@ -9,7 +9,6 @@ namespace FiDeli.Domain
 {
     public class Deliverer : Person, IAggregateRoot
     {
-        public GeoLocation CurrentLocation { get; set; } 
         public List<Parcel> AssignedParcels { get; set; }
         public List<Parcel> ParcelsInPossession { get; set; }
         public void AssignParcel(Parcel parcel)

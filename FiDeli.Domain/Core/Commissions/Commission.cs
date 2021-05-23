@@ -18,6 +18,7 @@ namespace FiDeli.Domain.Core.Commissions
         public IDeliveryStatus DeliveryStatus { get; set; } //prolly state design pattern
         public decimal Price { get; set; }
         public Parcel Parcel { get; set; }
+
       
     }
 

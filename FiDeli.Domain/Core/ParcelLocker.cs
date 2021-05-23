@@ -13,5 +13,15 @@ namespace FiDeli.Domain
     {
         public GeoLocation Location { get; set; }
         public List<Locker> Lockers { get; set; }
+
+        public bool ContainsLockerOfSize(Size size)
+        {
+            return Lockers.Exists(x => x.Size == size);
+        }
+
+        public Locker GetLockerOfSize(Size size)
+        {
+            return Lockers.Where(x => x.Size == size).FirstOrDefault();
+        }
     }
 }
