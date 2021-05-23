@@ -11,9 +11,9 @@ namespace FiDeli.Application.Services.Interfaces.RepositoryInterfaces
 {
     public interface IEntityRepo<T> where T : Entity
     {
-        Task<bool> Exists(Guid Id);
+        Task<bool> Exists(int Id);
         Task<ICollection<T>> FindAll();
-        Task<T> FindById(Guid id);
+        Task<T> FindById(int id);
         Task Add(T item);
         Task Update(T item);
         Task Delete(T item);

@@ -62,7 +62,7 @@ namespace FiDeli.Domain.Core.Commissions
             }
             return new Commission
             {
-                Id = Guid.NewGuid(),
+                //Id = Guid.NewGuid(),
                 Commissioner = Commissioner,
                 CommissionStatus = CommissionStatus,
                 Parcel = Parcel,

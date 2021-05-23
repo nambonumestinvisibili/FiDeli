@@ -42,7 +42,7 @@ namespace FiDeli.Infrastructure.Repos.MongoRepos
             return (ICollection<T>) res.ToListAsync();
         }
 
-        public async Task<T> FindById(Guid id)
+        public async Task<T> FindById(int id)
         {
             var res = await _collection.FindAsync(x => x.Id == id);
             return res.FirstOrDefault();
@@ -51,6 +51,11 @@ namespace FiDeli.Infrastructure.Repos.MongoRepos
         public async Task Update(T item)
         {
             await _collection.FindOneAndReplaceAsync(x => x.Id == item.Id, item);
+        }
+
+        public Task<bool> Exists(int Id)
+        {
+            throw new NotImplementedException();
         }
     }
 

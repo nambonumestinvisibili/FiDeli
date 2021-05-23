@@ -16,7 +16,7 @@ namespace FiDeli.Infrastructure.Repos.IMRepos
         {
             _entities.Add(new Deliverer
             {
-                Id = Guid.NewGuid(),
+                Id = new Random().Next(),
                 EmailAddress = "a@b.com",
                 FirstName = "da",
                 Surname = "Ho",
@@ -27,7 +27,7 @@ namespace FiDeli.Infrastructure.Repos.IMRepos
 
             _entities.Add(new Deliverer
             {
-                Id = Guid.NewGuid(),
+                Id = new Random().Next(),
                 EmailAddress = "b@b.com",
                 FirstName = "ca",
                 Surname = "de",

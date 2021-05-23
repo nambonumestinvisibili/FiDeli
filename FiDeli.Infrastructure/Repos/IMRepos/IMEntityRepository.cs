@@ -27,7 +27,7 @@ namespace FiDeli.Infrastructure.Repos.IMRepos
 
         }
 
-        public Task<bool> Exists(Guid Id)
+        public Task<bool> Exists(int Id)
         {
             var ans = _entities.Exists(x => x.Id == Id);
             return Task.FromResult(ans);
@@ -38,7 +38,7 @@ namespace FiDeli.Infrastructure.Repos.IMRepos
             return Task.FromResult((ICollection<T>)_entities);
         }
 
-        public Task<T> FindById(Guid id)
+        public Task<T> FindById(int id)
         {
             return Task.FromResult(_entities
                 .FirstOrDefault(x => x.Id == id));
