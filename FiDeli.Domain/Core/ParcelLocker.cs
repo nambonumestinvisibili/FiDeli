@@ -13,7 +13,7 @@ namespace FiDeli.Domain
     public class ParcelLocker : Localisable
     {
         public GeoLocation Location { get; set; }
-        public List<Locker> Lockers { get; set; }
+        public List<Locker> Lockers { get; set; } = new List<Locker>();
 
         public bool ContainsLockerOfSize(Size size)
         {

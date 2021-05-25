@@ -11,10 +11,6 @@ namespace FiDeli.Infrastructure.Repos.MongoRepos.Tests
     [TestClass()]
     public class MongoCommissionerRepoTests
     {
-        [TestMethod()]
-        public void MongoCommissionerRepoTest()
-        {
-            Assert.Fail();
-        }
+        
     }
 }

@@ -33,26 +33,35 @@ namespace FiDeli.Application.Services.Implementations.CommissionCreatorService.T
             var utils = new Utils();
             var commissionRepo = utils.commissionRepo;
 
-
+            var cmr = (await utils.CommissionerRepo.FindAll()).First();
+            var rcp = (await utils.recipientRepo.FindAll()).First();
+            var parlock = (await utils.parcelLockerRepo.FindAll()).First();
+            var parc = (await utils.parcelRepo.FindAll()).First();
+            
             Commission commission = new Commission()
             {
-                Commissioner = (await utils.CommissionerRepo.FindAll()).First(),
-                Recipient = (await utils.recipientRepo.FindAll()).First(),
-                Price = 10,
-                TargetParceLocker = (await utils.parcelLockerRepo.FindAll()).First(),
-                Parcel = (await utils.parcelRepo.FindAll()).First(),
-                CommissionStatus = Domain.Statuses.CommissionStatus.Draft,
-                DeliveryStatus = Domain.DeliveryStatus.NotStarted,
-                
+                Commissioner =      cmr,
+                Recipient =         rcp,
+                Price =             10,
+                TargetParceLocker = parlock,
+                Parcel =            parc,
+                CommissionStatus =  Domain.Statuses.CommissionStatus.Draft,
+                DeliveryStatus =    Domain.DeliveryStatus.NotStarted,
+                Id = 100
 
             };
 
-            //var repo = new Mock<ICommissionRepo>();
-            //Commission commission = new Commission() { Price = 10 };
-            //var cmd = new CreateCommissionCommand(commission);
-            //var ret = new CreateCommissionCommandHandler(repo.Object, _mapper);
-            //var res = await ret.Handle(cmd, CancellationToken.None);
-            //Assert.IsNotNull(res);
+            CreateCommissionCommand cmd = new CreateCommissionCommand(commission);
+
+            
+
+            CreateCommissionCommandHandler handler = new CreateCommissionCommandHandler(utils.commissionRepo, mapper);
+
+            var response = await handler.Handle(cmd, CancellationToken.None);
+
+            Assert.IsTrue(response.Output.GetType() == typeof(CommissionDTO));
+            Assert.IsTrue(utils.commissionRepo.Exists(commission.Id) != null);
+
         }
     }
 }

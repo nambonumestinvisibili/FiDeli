@@ -36,7 +36,7 @@ namespace FiDeli.API
             //assemblies
             var InfraAssembly = Assembly.GetAssembly(typeof(FiDeli.Infrastructure.ServiceCollectionExtensions));
             var DomainAssembly = Assembly.GetAssembly(typeof(FiDeli.Domain.Person));
-            var ApplicationAssembly = Assembly.GetAssembly(typeof(FiDeli.Application.Services.Interfaces.ICommissionCreator));
+            var ApplicationAssembly = Assembly.GetAssembly(typeof(FiDeli.Application.Services.Interfaces.RepositoryInterfaces.ICommissionRepo));
 
 
             services.AddControllers()

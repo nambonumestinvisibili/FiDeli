@@ -3,10 +3,6 @@ using Fideli.Domain.EventBus.Interfaces.Results;
 using FiDeli.Application.DTO;
 using FiDeli.Application.Services.Interfaces.RepositoryInterfaces;
 using FiDeli.Domain.EventBus.Interfaces.Commands;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -29,12 +25,11 @@ namespace FiDeli.Application.Services.Implementations.CommissionCreatorFinisherS
             var cmdLocker = request.TargetParcelLocker;
             var cmdCommission = request.Commission;
 
-            var dbLocker = _parcelLockerRepo.FindById(cmdLocker.Id).Result;
-            var dbCommission = _commissionRepo.FindById(cmdLocker.Id).Result;
+            var dbParcelLocker = await _parcelLockerRepo.FindById(cmdLocker.Id);
+            var dbCommission = await _commissionRepo.FindById(cmdCommission.Id);
 
             
-
-            if (dbLocker == null || dbCommission == null)
+            if (dbParcelLocker == null || dbCommission == null)
             {
                 var resultx = new Result<CommissionDTO>(ErrorType.NotFound);
                 return resultx;
@@ -45,13 +40,13 @@ namespace FiDeli.Application.Services.Implementations.CommissionCreatorFinisherS
                 return new Result<CommissionDTO>(ErrorType.WrongArguments, "Parcel Numbers do not match");
             }
 
-            if (!dbLocker.ContainsLockerOfSize(dbCommission.Parcel.Size))
+            if (!dbParcelLocker.ContainsLockerOfSize(dbCommission.Parcel.Size))
             {
                 var resultx = new Result<CommissionDTO>(ErrorType.NotValid, "There is no locker of given size");
                 return resultx;
             }
             
-            dbCommission.TargetParceLocker = dbLocker;
+            dbCommission.SourceParcelLocker = dbParcelLocker;
             dbCommission.CommissionStatus = Domain.Statuses.CommissionStatus.Executing;
             await _commissionRepo.Update(request.Commission);
 

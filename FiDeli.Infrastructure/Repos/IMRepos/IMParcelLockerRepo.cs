@@ -81,6 +81,11 @@ namespace FiDeli.Infrastructure.Repos.IMRepos
                 lockers[i].ParcelLocker = parcelLocker3;
                 parcelLocker3.Lockers.Add(lockers[i]);
             }
+
+            _entities.Add(parcelLocker);
+            _entities.Add(parcelLocker2);
+            _entities.Add(parcelLocker3);
+
         }
 
     }

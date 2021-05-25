@@ -13,7 +13,30 @@ namespace FiDeli.Infrastructure.Repos.IMRepos
     {
         public IMCommissionRepo()
         {
-            
+            Populate();
+        }
+
+        public async void Populate()
+        {
+            var cmr = (await new IMCommissionerRepo().FindAll()).First();
+            var rcp = (await new IMRecipientRepo().FindAll()).First();
+            var parlock = (await new IMParcelLockerRepo().FindAll()).First();
+            var parc = (await new IMParcelRepo().FindAll()).First();
+
+            Commission commission = new Commission()
+            {
+                Commissioner = cmr,
+                Recipient = rcp,
+                Price = 10,
+                TargetParceLocker = parlock,
+                Parcel = parc,
+                CommissionStatus = Domain.Statuses.CommissionStatus.Draft,
+                DeliveryStatus = Domain.DeliveryStatus.NotStarted,
+                Id = 1
+
+            };
+
+            _entities.Add(commission);
         }
 
         public Commission FindCommissionByParcelCode(ParcelCode parcelCode)

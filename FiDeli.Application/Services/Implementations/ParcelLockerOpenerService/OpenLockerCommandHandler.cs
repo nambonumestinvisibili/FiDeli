@@ -66,7 +66,7 @@ namespace FiDeli.Application.Services.Implementations.ParcelLockerOpenerService
                 commission.DeliveryStatus = DeliveryStatus.Traveling;
 
             }
-            else (executor.GetType() == typeof(Recipient) && locker.CanBeOpenedBy<Recipient>(request.ParcelCode)){
+            else if (executor.GetType() == typeof(Recipient) && locker.CanBeOpenedBy<Recipient>(request.ParcelCode)){
                 locker.Open();
                 locker.EmptyLocker();
                 commission.CommissionStatus = Domain.Statuses.CommissionStatus.Finished;
